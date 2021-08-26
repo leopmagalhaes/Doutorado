@@ -1,0 +1,13 @@
+I = image;
+R = I(:, :, 1); % R image.
+G = I(:, :, 2); % G image.
+B = I(:, :, 3); % B image.
+Rn = R / (R+G+B); % R normalized
+Gn = G / (R+G+B); % G normalized
+Bn = B / (R+G+B); % B normalized
+MPRI = (g-r)/(g+r)
+hsv = rgb2hsv(I);
+h = hsv(:, :, 1); % Hue image.
+S = hsv(:, :, 2); % Saturation image.
+V = hsv(:, :, 3); % Value (intensity) image.
+ICVE = [((h-60)/60)+(1-s)+(1-v)]/3;
