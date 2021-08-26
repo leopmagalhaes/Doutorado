@@ -1,0 +1,11 @@
+net = feedforwardnet (10);
+X = [ ];
+T = [ ];
+net = configure(net,X,T);
+net.trainFcn = 'trainlm';
+net.layers{1}.transferFcn = 'logsig';
+[net,tr] = train(net,X,T);
+resultado = net(X);
+dados = [ ];
+out = net(dados);
+Where the inputs X and T are, respectively, the samples selected for training and the values of P (targets) corresponding to each value of the indexes used (X). The penultimate line is the data (samples) to be used in the validation of the network after training. 
